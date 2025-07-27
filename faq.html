@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Preguntas</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    /* Estilo general */
+    body {
+      margin: 0;
+      font-family: sans-serif;
+	  background-color: #f4f4f4;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    body.dark-mode {
+
+      background-color: #1e1e1e;
+      color: #ffffff;
+    }
+
+    /* Encabezado */
+    header {
+      background-color: #005baa;
+      color: white;
+      text-align: center;
+      padding: 15px 0;
+      position: relative;
+    }
+
+    header.dark-mode {
+      background-color: #111;
+    }
+
+    /* Botón de tema */
+    #theme-toggle {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      background: none;
+      border: none;
+      font-size: 24px;
+      cursor: pointer;
+      color: white;
+    }
+
+    /* Navegación */
+    nav {
+      display: flex;
+      justify-content: center;
+      flex-wrap: nowrap;
+      gap: 80px;
+      margin: 30px auto;
+      max-width: 600px;
+    }
+
+    nav a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 18px;
+      background-color: #0074d9;
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      border: 2px solid transparent;
+      transition: background-color 0.3s, transform 0.2s;
+      min-width: 120px;
+      font-weight: bold;
+      text-align: center;
+    }
+
+    nav a:hover {
+      background-color: #005fa3;
+      transform: scale(1.05);
+    }
+
+    nav.dark-mode a {
+      background-color: #444;
+      color: #eee;
+      border-color: #666;
+    }
+
+    nav.dark-mode a:hover {
+      background-color: #555;
+    }
+
+    /* Cuadrícula móvil */
+    @media (max-width: 600px) {
+      nav {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 15px;
+        padding: 10px;
+      }
+
+      nav a {
+        font-size: 14px;
+        padding: 10px;
+      }
+    }
+.faq-container {
+  max-width: 600px;
+  margin: 4rem auto 2rem auto; /* Aumenta espacio superior */
+  padding: 1rem;
+}
+
+.faq {
+  background-color: var(--boton-fondo); /* se adapta al tema */
+  margin-bottom: 1rem;
+  border-radius: 0.75rem;
+  overflow: hidden;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.faq-question {
+  padding: 1rem 1.5rem;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--acordeon-cabecera, #7B002C);
+  color: white;
+  transition: background-color 0.3s;
+}
+
+.faq-question:hover {
+  background-color: #a8385d;
+}
+
+.faq.open .faq-question {
+  background-color: #00703C;
+}
+
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  background-color: var(--fondo-cuerpo, #fff);
+  padding: 0 1.5rem;
+  color: var(--texto-principal, #000);
+  transition: max-height 0.4s ease, padding 0.4s ease;
+}
+
+.faq.open .faq-answer {
+  max-height: 300px;
+  padding: 1rem 1.5rem;
+}
+
+.toggle i {
+  font-size: 1rem;
+  transition: transform 0.3s ease;
+}
+
+.faq.open .toggle i {
+  transform: rotate(180deg);
+}
+
+body.dark-mode .faq {
+  background-color: #1e1e1e;
+  box-shadow: 0 0 5px rgba(255,255,255,0.1);
+}
+
+body.dark-mode .faq-question {
+  background-color: #333333;
+  color: #ffffff;
+}
+
+body.dark-mode .faq.open .faq-question {
+  background-color: #005f2f; /* equivalente oscuro de #00703C */
+}
+
+
+body.dark-mode .faq-answer {
+  background-color: #2a2a2a;
+  color: #dddddd;
+}
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Preguntas Frecuentes</h1>
+    <button onclick="toggleTheme()" id="theme-toggle">🌙</button>
+  </header>
+
+  <nav>
+    <a href="index.html">Inicio</a>
+    <a href="nosotros.html">Sobre Nosotros</a>
+    <a href="contacto.html">Contáctanos</a>
+    <a href="faq.html">Preguntas Frecuentes</a>
+  </nav>
+<main>
+<section >
+<div class="faq-container">
+  <div class="faq">
+    <div class="faq-question">
+      ¿Qué servicios ofrecen?
+      <span class="toggle"><i class="fas fa-plus"></i></span>
+    </div>
+    <div class="faq-answer">
+      Ofrecemos consultoría en estrategia, desarrollo web, automatización y soluciones tecnológicas adaptadas a su negocio.
+    </div>
+  </div>
+
+  <div class="faq">
+    <div class="faq-question">
+      ¿Cómo puedo contactarlos?
+      <span class="toggle"><i class="fas fa-plus"></i></span>
+    </div>
+    <div class="faq-answer">
+      Puede enviarnos un correo electrónico o utilizar nuestro formulario de contacto en la sección de “Contáctanos”.
+    </div>
+  </div>
+
+  <div class="faq">
+    <div class="faq-question">
+      ¿Cuánto tiempo tardan en entregar un proyecto?
+      <span class="toggle"><i class="fas fa-plus"></i></span>
+    </div>
+    <div class="faq-answer">
+      Depende del tipo y alcance del proyecto. Por lo general, damos una estimación precisa tras la evaluación inicial.
+    </div>
+  </div>
+
+  <div class="faq">
+    <div class="faq-question">
+      ¿Qué servicios ofrecen?
+      <span class="toggle"><i class="fas fa-plus"></i></span>
+    </div>
+    <div class="faq-answer">
+      Ofrecemos consultoría en estrategia, desarrollo web, automatización y soluciones tecnológicas adaptadas a su negocio.
+    </div>
+  </div>
+
+  <div class="faq">
+    <div class="faq-question">
+      ¿Cómo puedo contactarlos?
+      <span class="toggle"><i class="fas fa-plus"></i></span>
+    </div>
+    <div class="faq-answer">
+      Puede enviarnos un correo electrónico o utilizar nuestro formulario de contacto en la sección de “Contáctanos”.
+    </div>
+  </div>
+
+  <div class="faq">
+    <div class="faq-question">
+      ¿Cuánto tiempo tardan en entregar un proyecto?
+      <span class="toggle"><i class="fas fa-plus"></i></span>
+    </div>
+    <div class="faq-answer">
+      Depende del tipo y alcance del proyecto. Por lo general, damos una estimación precisa tras la evaluación inicial.
+    </div>
+  </div>
+</div>
+</section>
+</main>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const savedTheme = localStorage.getItem("theme");
+      const body = document.body;
+      const nav = document.querySelector("nav");
+      const header = document.querySelector("header");
+      const themeToggle = document.getElementById("theme-toggle");
+
+      if (savedTheme === "dark") {
+        body.classList.add("dark-mode");
+        nav.classList.add("dark-mode");
+        header.classList.add("dark-mode");
+        themeToggle.textContent = "☀️";
+      } else {
+        themeToggle.textContent = "🌙";
+      }
+    });
+
+    function toggleTheme() {
+      const body = document.body;
+      const nav = document.querySelector("nav");
+      const header = document.querySelector("header");
+      const themeToggle = document.getElementById("theme-toggle");
+
+      body.classList.toggle("dark-mode");
+      nav.classList.toggle("dark-mode");
+      header.classList.toggle("dark-mode");
+
+      const isDark = body.classList.contains("dark-mode");
+      localStorage.setItem("theme", isDark ? "dark" : "light");
+      themeToggle.textContent = isDark ? "☀️" : "🌙";
+    }
+  </script>
+<script>
+  const faqs = document.querySelectorAll('.faq');
+
+  faqs.forEach(faq => {
+    const question = faq.querySelector('.faq-question');
+    const toggleIcon = faq.querySelector('.toggle i');
+
+    question.addEventListener('click', () => {
+      // Cierra los otros
+      faqs.forEach(other => {
+        if (other !== faq) {
+          other.classList.remove('open');
+          other.querySelector('.toggle i').classList.replace('fa-minus', 'fa-plus');
+        }
+      });
+
+      // Abre/cierra el actual
+      const isOpen = faq.classList.toggle('open');
+      toggleIcon.classList.replace(isOpen ? 'fa-plus' : 'fa-minus', isOpen ? 'fa-minus' : 'fa-plus');
+    });
+  });
+</script>
+</body>
+</html>
