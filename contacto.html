@@ -99,11 +99,10 @@
     }
 /* Contenedor principal del formulario */
 main.formulario-contenedor {
-width:80%  
-padding: 40px;
-  margin: 40px 40px;
+  padding: 40px;
+  margin: 20px auto;
   border-radius: 12px;
-  max-width: 600px;
+  max-width: 700px;
   background-color: var(--form-bg);
   color: var(--text-color);
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -120,6 +119,7 @@ form input[type="text"],
 form input[type="email"],
 form textarea {
   width: 100%;
+  margin: 20px auto;
   padding: 10px;
   margin-top: 5px;
   border: 1px solid #ccc;
@@ -163,16 +163,16 @@ form textarea {
   </nav>
 
 <main class="formulario-contenedor">
-  <h1><center>Formulario de Contacto</center></h1>
-
+  <h1>Formulario de Contacto</h1>
+<center>
   <form action="https://formsubmit.co/mariiorod@hotmail.com" method="POST">
-    <label for="nombre">Nombre:</label>
+    <label align="left" for="nombre">Nombre:</label>
     <input type="text" id="nombre" name="nombre" required>
 
-    <label for="correo">Correo electrónico:</label>
+    <label align="left" for="correo">Correo electrónico:</label>
     <input type="email" id="correo" name="correo" required>
 
-    <label for="mensaje">Mensaje:</label>
+    <label align="left" for="mensaje">Mensaje:</label>
     <textarea id="mensaje" name="mensaje" rows="5" required></textarea>
 
     <!-- Captcha activo y redirección -->
@@ -180,7 +180,7 @@ form textarea {
     <input type="hidden" name="_next" value="https://mariiorod.github.io/Mar-Mar_Solutions/gracias.html">
 
     <input class="boton-enviar" type="submit" value="Enviar">
-  </form>
+  </form></center>
 </main>
 
   <script>
